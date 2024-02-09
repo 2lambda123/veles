@@ -87,7 +87,7 @@ class UnitsKeywordArgumentsGenerator(Logger):
             return sorted(units, key=lambda u: str(u))
 
         Environment(trim_blocks=True, lstrip_blocks=True,
-                    loader=FileSystemLoader(docs_source_dir)) \
+                    loader=FileSystemLoader(docs_source_dir), autoescape=True) \
             .get_template(result_file_name_base + ".jrst") \
             .stream(origin=self, root_kwattrs=Unit.KWATTRS,
                     all_units=usorted(veles.__units__),
